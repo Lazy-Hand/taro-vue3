@@ -78,6 +78,7 @@
 		"babel-preset-taro": "3.6.2",
 		"commitizen": "^4.3.0",
 		"css-loader": "3.4.2",
+		"cz-git": "^1.5.3",
 		"eslint": "^8.35.0",
 		"eslint-config-prettier": "^8.7.0",
 		"eslint-config-taro": "3.6.2",
