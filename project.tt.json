@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "taro-vue",
+  "description": "taro-vue3",
+  "appid": "wx9e0449dd7e269ebd",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
