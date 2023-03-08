@@ -1,8 +1,10 @@
 <template>
 	<view>
-		<nut-button type="primary">按钮</nut-button>
-		<nut-cell title="标题"></nut-cell>
+		<image :src="background" :class="style.background"></image>
 	</view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import background from '@/assets/images/bg.png'
+import style from './index.module.scss'
+</script>
