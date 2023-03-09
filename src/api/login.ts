@@ -18,6 +18,6 @@ export const reqLogout = () => request.post('/gbw/api/logout')
 /**
  * @description 获取验证码
  * @param {object} params
- * @param {string} params.phoneNum
+ * @param {string} params.phoneNum 手机号
  */
 export const reqGetCode = (params: { phoneNum: string }) => request.post('/gbw/api/sendLoginSms', params)

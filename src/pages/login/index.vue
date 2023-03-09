@@ -14,20 +14,24 @@
 				<nut-input v-model="state.code" placeholder="请输入短信验证码" :border="false">
 					<template #left> <Ask></Ask> </template>
 					<template #right>
-						<nut-button size="small" type="info" @click="getCode">{{
+						<nut-button size="small" type="info" @click="getCode" :disabled="codeNum < 30">{{
 							codeNum === 30 ? '获取验证码' : `${codeNum}秒后获取`
 						}}</nut-button>
 					</template>
 				</nut-input>
 			</view>
-			<view><nut-button block type="info" size="large">登录</nut-button></view>
+			<view><nut-button block type="info" size="large" @click="handleLogin">登录</nut-button></view>
 			<view :class="style.agreeBox">
 				<nut-checkbox v-model="state.checkbox" />
 				<view :class="style.arr">
 					登录即代表同意
-					<text :class="style.agreement">《用户协议》</text>
+					<view :class="style.agreement" @click="agreement('https://data.millionsteel.com/xieyi/uagreement.html')"
+						>《用户协议》</view
+					>
 					和
-					<text :class="style.agreement">《隐私政策》</text>
+					<view :class="style.agreement" @click="agreement('https://data.millionsteel.com/xieyi/privacy.html')"
+						>《隐私政策》</view
+					>
 				</view>
 			</view>
 		</view>
@@ -40,14 +44,33 @@ import logo from '@/assets/images/tab7.png'
 import style from './index.module.scss'
 import { Ask, My2 } from '@nutui/icons-vue-taro'
 import { reactive, ref } from 'vue'
-import { showToast, showLoading, hideLoading } from '@tarojs/taro'
-import { reqGetCode } from '@/api/login'
+import { showToast, showLoading, hideLoading, login } from '@tarojs/taro'
+import { reqGetCode, reqLogin } from '@/api/login'
+import { useUserStore } from '@/store'
+import validate from '@/utils/validate'
+import router from '@/router'
 export interface LoginForm {
+	/**
+	 * 手机号
+	 */
 	phoneNum: string
+
+	/**
+	 * 验证码
+	 */
 	code: string
+
+	/**
+	 * 登录凭证
+	 */
 	wechatCode: string
+
+	/**
+	 * 协议勾选
+	 */
 	checkbox: boolean
 }
+const userStore = useUserStore()
 const state = reactive<LoginForm>({
 	checkbox: true,
 	phoneNum: '',
@@ -63,11 +86,18 @@ const getCode = async () => {
 			icon: 'error',
 			mask: true
 		})
+	validate.checkPhoneNumber(state.phoneNum)
 	if (!state.phoneNum)
 		return showToast({
 			title: '请输入手机号',
 			icon: 'error'
 		})
+	if (!validate.checkPhoneNumber(state.phoneNum)) {
+		return showToast({
+			title: '手机号错误',
+			icon: 'error'
+		})
+	}
 	showLoading({
 		title: '正在获取验证码'
 	})
@@ -78,11 +108,49 @@ const getCode = async () => {
 	}, 1000)
 	timer.value = setInterval(() => {
 		codeNum.value--
-		if (codeNum.value < 0) {
-			codeNum.value = 60
+		if (codeNum.value < 1) {
+			codeNum.value = 30
+			// @ts-expect-error
+			clearInterval(timer.value)
 			timer.value = null
 		}
 	}, 1000)
+}
+const handleLogin = () => {
+	if (!state.checkbox)
+		return showToast({
+			title: '请勾选用户协议',
+			icon: 'error',
+			mask: true
+		})
+	if (!state.phoneNum)
+		return showToast({
+			title: '请输入手机号',
+			icon: 'error'
+		})
+	if (!validate.checkPhoneNumber(state.phoneNum)) {
+		return showToast({
+			title: '手机号错误',
+			icon: 'error'
+		})
+	}
+	if (!state.code)
+		return showToast({
+			title: '请输入验证码',
+			icon: 'error'
+		})
+	login({
+		async success(res) {
+			state.wechatCode = res.code
+			const { data } = await reqLogin(state)
+			userStore.setToken(data.token)
+		}
+	})
+}
+const agreement = (url: string) => {
+	console.log('跳转')
+
+	router.navigate('agreement', { url })
 }
 </script>
 <style lang="scss">

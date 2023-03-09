@@ -2,14 +2,12 @@
 export const mainPackage = {
 	index: '/pages/index/index',
 	car: '/pages/car/index',
-	login: '/pages/login/index'
+	login: '/pages/login/index',
+	agreement: '/pages/agreement/index'
 }
 
 // 分包1
-export const packageA = {
-	chart: '/pagesA/chart/index',
-	screen: '/pagesA/screen/index'
-}
+export const packageA = {}
 // 分包2
 export const packageB = {}
 // 分包2
