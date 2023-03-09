@@ -7,6 +7,13 @@ export default defineAppConfig({
 		'pages/cart/index',
 		'pages/my/index'
 	],
+	subPackages: [
+		{
+			root: 'packageA',
+			pages: ['pages/chart/index'],
+			independent: true
+		}
+	],
 	window: {
 		backgroundTextStyle: 'light',
 		navigationBarBackgroundColor: '#fff',

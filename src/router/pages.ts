@@ -9,7 +9,9 @@ export const mainPackage = {
 }
 
 // 分包1
-export const packageA = {}
+export const packageA = {
+	chart: '/packageA/pages/chart/index'
+}
 // 分包2
 export const packageB = {}
 // 分包2
