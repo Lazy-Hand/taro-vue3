@@ -15,6 +15,7 @@ class Router {
 		this.navigateLock = ref(false)
 		this.routeStore = {} as Record<PageNames, unknown>
 	}
+
 	/**
 	 * @description 获取路由传参
 	 * @param page 页面标识
@@ -23,6 +24,12 @@ class Router {
 		const p = this.routeStore[page] as ObjectType<T>
 		return readonly(p)
 	}
+
+	/**
+	 * navigate跳转
+	 * @param page 页面标识
+	 * @param params 页面通讯传参
+	 */
 	public navigate<T extends PageNames>(page: T, params?: ObjectType<T>): Promise<any> | undefined {
 		if (this.navigateLock.value) {
 			return
@@ -42,19 +49,40 @@ class Router {
 			(resolve, reject) => (Taro.eventCenter.once(String(eventName), resolve), Taro.eventCenter.once(String(eventName), reject))
 		)
 	}
+	/**
+	 * redirect跳转
+	 * @param page 页面标识
+	 * @param params 页面通讯传参
+	 */
 	public redirect<T extends PageNames>(page: T, params?: ObjectType<T>) {
 		this.routeStore[page] = params
 		Taro.redirectTo({ url: pages[page] })
 	}
+
+	/**
+	 * reLaunch跳转
+	 * @param page 页面标识
+	 * @param params 页面通讯传参
+	 */
 	public reLaunch<T extends PageNames>(page: T, params?: ObjectType<T>) {
 		this.routeStore[page] = params
 		Taro.reLaunch({ url: pages[page] })
 	}
+
+	/**
+	 * switchTab跳转
+	 * @param page 页面标识
+	 * @param params 页面通讯传参
+	 */
 	public switchTab<T extends PageNames>(page: T, params?: ObjectType<T>) {
 		this.routeStore[page] = params
 
 		Taro.switchTab({ url: pages[page] })
 	}
+	/**
+	 * 页面返回
+	 * @param param
+	 */
 	public back({ delta, data }: BackParams = { delta: 1, data: null }) {
 		const currentRoute = Taro.getCurrentPages().pop()
 		console.log(currentRoute)

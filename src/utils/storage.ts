@@ -17,9 +17,19 @@ interface Result<T> {
  * 本地存储
  */
 class Storage implements StorageCla {
+	/**
+	 * 本地存储 - 存
+	 * @param {StorageKeys} key key
+	 * @param {T} initValue value
+	 */
 	set<T>(key: StorageKeys, initValue: T) {
 		setStorageSync(key, JSON.stringify(initValue))
 	}
+
+	/**
+	 * 本地存储 - 取
+	 * @param key key
+	 */
 	get<T>(key: StorageKeys): Result<T | null> {
 		const value = getStorageSync(key)
 		if (value) {
@@ -35,9 +45,18 @@ class Storage implements StorageCla {
 			}
 		}
 	}
+
+	/**
+	 * 本地存储 - 删
+	 * @param key key
+	 */
 	remove(key: StorageKeys) {
 		removeStorageSync(key)
 	}
+
+	/**
+	 * 清空本地存储
+	 */
 	clear() {
 		clearStorageSync()
 	}

@@ -49,6 +49,7 @@ import { reqGetCode, reqLogin } from '@/api/login'
 import { useUserStore } from '@/store'
 import validate from '@/utils/validate'
 import router from '@/router'
+
 export interface LoginForm {
 	/**
 	 * 手机号
@@ -70,15 +71,29 @@ export interface LoginForm {
 	 */
 	checkbox: boolean
 }
+
 const userStore = useUserStore()
+
 const state = reactive<LoginForm>({
 	checkbox: true,
 	phoneNum: '',
 	code: '',
 	wechatCode: ''
 })
+
+/**
+ * 验证码倒计时
+ */
 const codeNum = ref(30)
+
+/**
+ * 延时器ID
+ */
 const timer = ref<NodeJS.Timeout | null>(null)
+
+/**
+ * 获取验证码
+ */
 const getCode = async () => {
 	if (!state.checkbox)
 		return showToast({
@@ -116,6 +131,10 @@ const getCode = async () => {
 		}
 	}, 1000)
 }
+
+/**
+ * 登录
+ */
 const handleLogin = () => {
 	if (!state.checkbox)
 		return showToast({
@@ -147,9 +166,12 @@ const handleLogin = () => {
 		}
 	})
 }
-const agreement = (url: string) => {
-	console.log('跳转')
 
+/**
+ * 跳转webview页面
+ * @param url webview 路径
+ */
+const agreement = (url: string) => {
 	router.navigate('agreement', { url })
 }
 </script>

@@ -7,6 +7,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    EcCanvas: typeof import('./src/components/EcCanvas/index.vue')['default']
+    Echarts: typeof import('./src/components/Echarts/index.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutCheckbox: typeof import('@nutui/nutui-taro')['Checkbox']
     NutInput: typeof import('@nutui/nutui-taro')['Input']
