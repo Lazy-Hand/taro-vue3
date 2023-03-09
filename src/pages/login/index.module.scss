@@ -1,4 +1,55 @@
 .background {
 	width: 750rpx;
 	height: 640rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+.logoBox {
+	width: 100%;
+	height: 425rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.logo {
+		width: 200rpx;
+		height: 200rpx;
+	}
+}
+.loginCard {
+	width: 702rpx;
+	height: 45vh;
+	background-color: #fff;
+	margin-left: 24rpx;
+	border-radius: 24rpx;
+	padding: 52rpx;
+	box-sizing: border-box;
+	.username {
+		border: 1rpx solid #ccc;
+		border-radius: 8rpx;
+		margin-bottom: 42rpx;
+		height: 100rpx;
+		padding-top: 10rpx;
+		box-sizing: border-box;
+	}
+	.code {
+		border: 1rpx solid #ccc;
+		border-radius: 8rpx;
+		margin-bottom: 100rpx;
+		height: 95rpx;
+		padding-top: 5rpx;
+	}
+}
+.agreeBox {
+	margin-top: 40rpx;
+	margin-left: 20rpx;
+	display: flex;
+
+	.arr {
+		font-size: 24rpx;
+		.agreement {
+			color: #496cf2;
+		}
+	}
 }

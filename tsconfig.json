@@ -34,5 +34,8 @@
 		"./src/typings",
 		"components.d.ts"
 	],
+	"exclude": [
+		"node_modules/**"
+	],
 	"compileOnSave": false
 }

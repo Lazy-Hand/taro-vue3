@@ -1,15 +1,19 @@
 {
-  "miniprogramRoot": "./dist",
-  "projectname": "taro-vue",
-  "description": "taro-vue3",
-  "appid": "wx9e0449dd7e269ebd",
-  "setting": {
-    "urlCheck": true,
-    "es6": false,
-    "enhance": false,
-    "compileHotReLoad": false,
-    "postcss": false,
-    "minified": false
-  },
-  "compileType": "miniprogram"
+	"miniprogramRoot": "./dist",
+	"projectname": "taro-vue",
+	"description": "taro-vue3",
+	"appid": "wx9e0449dd7e269ebd",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"compileHotReLoad": false,
+		"postcss": true,
+		"minified": true,
+		"minifyWXSS": true,
+		"minifyWXML": true,
+		"bigPackageSizeSupport": true
+	},
+	"lazyCodeLoading": "requiredComponents",
+	"compileType": "miniprogram"
 }
