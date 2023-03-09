@@ -1,8 +1,7 @@
-export interface LoginUser {
-	token: string
-	user: UserInfo
-}
-
+import { PageNames } from '@/router/interface/routes'
+/**
+ * 个人信息
+ */
 export interface UserInfo {
 	auth: string
 	avatarPath: string
@@ -20,4 +19,16 @@ export interface UserInfo {
 	role: string
 	roleText: string
 	warehouseId: number
+}
+
+/**
+ * tabbar
+ */
+export interface Tabbar {
+	id: number
+	icon: string
+	active: string
+	name: PageNames
+	title: string
+	pagePath: string
 }

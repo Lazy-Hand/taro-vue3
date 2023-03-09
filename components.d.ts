@@ -10,6 +10,9 @@ declare module '@vue/runtime-core' {
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutCheckbox: typeof import('@nutui/nutui-taro')['Checkbox']
     NutInput: typeof import('@nutui/nutui-taro')['Input']
+    NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
+    NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
     NutToast: typeof import('@nutui/nutui-taro')['Toast']
+    Tabbar: typeof import('./src/components/Tabbar/index.vue')['default']
   }
 }

@@ -1,9 +1,11 @@
 // 主包
 export const mainPackage = {
 	index: '/pages/index/index',
-	car: '/pages/car/index',
 	login: '/pages/login/index',
-	agreement: '/pages/agreement/index'
+	agreement: '/pages/agreement/index',
+	category: '/pages/category/index',
+	cart: '/pages/cart/index',
+	my: '/pages/my/index'
 }
 
 // 分包1
