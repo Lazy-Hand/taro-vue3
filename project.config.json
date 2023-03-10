@@ -12,7 +12,9 @@
 		"minified": true,
 		"minifyWXSS": true,
 		"minifyWXML": true,
-		"bigPackageSizeSupport": true
+		"bigPackageSizeSupport": true,
+		"ignoreDevUnusedFiles": false,
+		"ignoreUploadUnusedFiles": false
 	},
 	"lazyCodeLoading": "requiredComponents",
 	"compileType": "miniprogram"

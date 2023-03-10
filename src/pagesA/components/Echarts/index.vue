@@ -7,9 +7,9 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import style from './index.module.scss'
-import ECanvas from '@/components/EcCanvas/index.vue'
+import ECanvas from '@/pagesA/components/EcCanvas/index.vue'
 // @ts-expect-error
-import * as echarts from '@/components/EcCanvas/echarts'
+import * as echarts from '@/pagesA/components/EcCanvas/echarts'
 interface EchartsProps {
 	option: object
 }

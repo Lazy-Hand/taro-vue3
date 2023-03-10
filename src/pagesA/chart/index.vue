@@ -1,13 +1,14 @@
 <template>
-	<view class="echarts-page">
+	<view :class="style.echartsPage">
 		<Echarts :option="option" ref="echarts" />
 		<nut-button type="primary" @click="test">测试</nut-button>
 	</view>
 </template>
 
 <script setup lang="ts">
-import Echarts from '@/components/Echarts/index.vue'
+import Echarts from '@/pagesA/components/Echarts/index.vue'
 import { ref } from 'vue'
+import style from './index.module.scss'
 const echarts = ref()
 const option = ref({
 	title: {
@@ -57,10 +58,3 @@ const test = () => {
 	]
 }
 </script>
-
-<style lang="scss">
-.echarts-page {
-	width: 100%;
-	height: 1000rpx;
-}
-</style>

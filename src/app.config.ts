@@ -9,9 +9,8 @@ export default defineAppConfig({
 	],
 	subPackages: [
 		{
-			root: 'packageA',
-			pages: ['pages/chart/index'],
-			independent: true
+			root: 'pagesA',
+			pages: ['chart/index', 'screen/index']
 		}
 	],
 	window: {

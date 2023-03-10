@@ -9,18 +9,19 @@ export const mainPackage = {
 }
 
 // 分包1
-export const packageA = {
-	chart: '/packageA/pages/chart/index'
+export const pagesA = {
+	chart: '/pagesA/chart/index',
+	screen: '/pagesA/screen/index'
 }
 // 分包2
-export const packageB = {}
+export const pagesB = {}
 // 分包2
-export const packageC = {}
+export const pagesC = {}
 const pages = {
 	...mainPackage,
-	...packageA,
-	...packageB,
-	...packageC
+	...pagesA,
+	...pagesB,
+	...pagesC
 }
 
 export default pages
