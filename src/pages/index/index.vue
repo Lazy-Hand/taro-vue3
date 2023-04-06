@@ -8,6 +8,7 @@
 			<nut-button type="primary" @click="handleClick('text', msg2, true)">点我</nut-button>
 		</view>
 		<nut-toast :msg="msg2" v-model:visible="show" :type="type" :cover="cover" />
+		<text class="text-teal">unocss</text>
 		<Tabbar />
 	</view>
 </template>

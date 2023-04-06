@@ -34,6 +34,7 @@ const config = {
 	outputRoot: 'dist',
 	plugins: [
 		'@tarojs/plugin-html',
+		'taro-plugin-compiler-optimization',
 		[
 			'tarojs-router-next-plugin',
 			{
@@ -67,6 +68,23 @@ const config = {
 	},
 	mini: {
 		webpackChain(chain) {
+			chain.merge({
+				plugin: {
+					install: {
+						plugin: require('terser-webpack-plugin'),
+						args: [
+							{
+								terserOptions: {
+									compress: true, // 默认使用terser压缩
+									// mangle: false,
+									keep_classnames: true, // 不改变class名称
+									keep_fnames: true // 不改变函数名称
+								}
+							}
+						]
+					}
+				}
+			})
 			chain.plugin('unplugin-vue-components').use(
 				Components({
 					resolvers: [NutUIResolver()]

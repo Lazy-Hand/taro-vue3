@@ -108,9 +108,15 @@ devDependencies:
   '@vue/compiler-sfc':
     specifier: ^3.0.0
     version: registry.npmmirror.com/@vue/compiler-sfc@3.2.47
+  babel-loader:
+    specifier: ^9.1.2
+    version: registry.npmmirror.com/babel-loader@9.1.2(@babel/core@7.21.0)(webpack@5.69.0)
   babel-preset-taro:
     specifier: 3.6.2
     version: registry.npmmirror.com/babel-preset-taro@3.6.2(@babel/core@7.21.0)(vue@3.2.47)
+  cache-loader:
+    specifier: ^4.1.0
+    version: registry.npmmirror.com/cache-loader@4.1.0(webpack@5.69.0)
   commitizen:
     specifier: ^4.3.0
     version: registry.npmmirror.com/commitizen@4.3.0(@swc/core@1.3.38)
@@ -153,9 +159,18 @@ devDependencies:
   style-loader:
     specifier: 1.3.0
     version: registry.npmmirror.com/style-loader@1.3.0(webpack@5.69.0)
+  taro-plugin-compiler-optimization:
+    specifier: ^1.0.4
+    version: registry.npmmirror.com/taro-plugin-compiler-optimization@1.0.4
   tarojs-router-next-plugin:
     specifier: ^3.2.0
     version: registry.npmmirror.com/tarojs-router-next-plugin@3.2.0
+  terser-webpack-plugin:
+    specifier: ^5.3.7
+    version: registry.npmmirror.com/terser-webpack-plugin@5.3.7(@swc/core@1.3.38)(esbuild@0.14.54)(webpack@5.69.0)
+  thread-loader:
+    specifier: ^3.0.4
+    version: registry.npmmirror.com/thread-loader@3.0.4(webpack@5.69.0)
   typescript:
     specifier: ^4.9.5
     version: registry.npmmirror.com/typescript@4.9.5
@@ -3516,7 +3531,7 @@ packages:
       stylus: registry.npmmirror.com/stylus@0.55.0
       stylus-loader: registry.npmmirror.com/stylus-loader@6.2.0(stylus@0.55.0)(webpack@5.69.0)
       tapable: registry.npmmirror.com/tapable@1.1.3
-      terser-webpack-plugin: registry.npmmirror.com/terser-webpack-plugin@5.3.6(@swc/core@1.3.38)(esbuild@0.14.54)(webpack@5.69.0)
+      terser-webpack-plugin: registry.npmmirror.com/terser-webpack-plugin@5.3.7(@swc/core@1.3.38)(esbuild@0.14.54)(webpack@5.69.0)
       url-loader: registry.npmmirror.com/url-loader@4.1.0(file-loader@6.0.0)(webpack@5.69.0)
       vm2: registry.npmmirror.com/vm2@3.9.14
       webpack: registry.npmmirror.com/webpack@5.69.0(@swc/core@1.3.38)
@@ -5310,6 +5325,22 @@ packages:
       webpack: registry.npmmirror.com/webpack@5.69.0(@swc/core@1.3.38)
     dev: true
 
+  registry.npmmirror.com/babel-loader@9.1.2(@babel/core@7.21.0)(webpack@5.69.0):
+    resolution: {integrity: sha512-mN14niXW43tddohGl8HPu5yfQq70iUThvFL/4QzESA7GcZoC0eVOhvWdQ8+3UlSjaDE9MVtsW9mxDY07W7VpVA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/babel-loader/-/babel-loader-9.1.2.tgz}
+    id: registry.npmmirror.com/babel-loader/9.1.2
+    name: babel-loader
+    version: 9.1.2
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      '@babel/core': ^7.12.0
+      webpack: '>=5'
+    dependencies:
+      '@babel/core': registry.npmmirror.com/@babel/core@7.21.0
+      find-cache-dir: registry.npmmirror.com/find-cache-dir@3.3.2
+      schema-utils: registry.npmmirror.com/schema-utils@4.0.0
+      webpack: registry.npmmirror.com/webpack@5.69.0(@swc/core@1.3.38)
+    dev: true
+
   registry.npmmirror.com/babel-macros@1.2.0:
     resolution: {integrity: sha512-/GIwkOeNHQU9R27Bkt0jHrJgaXBX5KLKrIH5h/iGebvKppvL9e4wKCgrl4qwUj0qssBHQFeSavk3lG2lQgdq8w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/babel-macros/-/babel-macros-1.2.0.tgz}
     name: babel-macros
@@ -5903,6 +5934,12 @@ packages:
     version: 1.1.1
     dev: true
 
+  registry.npmmirror.com/buffer-json@2.0.0:
+    resolution: {integrity: sha512-+jjPFVqyfF1esi9fvfUs3NqM0pH1ziZ36VP4hmA/y/Ssfo/5w5xHKfTw9BwQjoJ1w/oVtpLomqwUHKdefGyuHw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/buffer-json/-/buffer-json-2.0.0.tgz}
+    name: buffer-json
+    version: 2.0.0
+    dev: true
+
   registry.npmmirror.com/buffer@5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/buffer/-/buffer-5.7.1.tgz}
     name: buffer
@@ -5964,6 +6001,24 @@ packages:
       to-object-path: registry.npmmirror.com/to-object-path@0.3.0
       union-value: registry.npmmirror.com/union-value@1.0.1
       unset-value: registry.npmmirror.com/unset-value@1.0.0
+    dev: true
+
+  registry.npmmirror.com/cache-loader@4.1.0(webpack@5.69.0):
+    resolution: {integrity: sha512-ftOayxve0PwKzBF/GLsZNC9fJBXl8lkZE3TOsjkboHfVHVkL39iUEs1FO07A33mizmci5Dudt38UZrrYXDtbhw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cache-loader/-/cache-loader-4.1.0.tgz}
+    id: registry.npmmirror.com/cache-loader/4.1.0
+    name: cache-loader
+    version: 4.1.0
+    engines: {node: '>= 8.9.0'}
+    peerDependencies:
+      webpack: ^4.0.0
+    dependencies:
+      buffer-json: registry.npmmirror.com/buffer-json@2.0.0
+      find-cache-dir: registry.npmmirror.com/find-cache-dir@3.3.2
+      loader-utils: registry.npmmirror.com/loader-utils@1.4.2
+      mkdirp: registry.npmmirror.com/mkdirp@0.5.6
+      neo-async: registry.npmmirror.com/neo-async@2.6.2
+      schema-utils: registry.npmmirror.com/schema-utils@2.7.1
+      webpack: registry.npmmirror.com/webpack@5.69.0(@swc/core@1.3.38)
     dev: true
 
   registry.npmmirror.com/cacheable-request@2.1.4:
@@ -9285,6 +9340,17 @@ packages:
       commondir: registry.npmmirror.com/commondir@1.0.1
       make-dir: registry.npmmirror.com/make-dir@2.1.0
       pkg-dir: registry.npmmirror.com/pkg-dir@3.0.0
+
+  registry.npmmirror.com/find-cache-dir@3.3.2:
+    resolution: {integrity: sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/find-cache-dir/-/find-cache-dir-3.3.2.tgz}
+    name: find-cache-dir
+    version: 3.3.2
+    engines: {node: '>=8'}
+    dependencies:
+      commondir: registry.npmmirror.com/commondir@1.0.1
+      make-dir: registry.npmmirror.com/make-dir@3.1.0
+      pkg-dir: registry.npmmirror.com/pkg-dir@4.2.0
+    dev: true
 
   registry.npmmirror.com/find-node-modules@2.1.3:
     resolution: {integrity: sha512-UC2I2+nx1ZuOBclWVNdcnbDR5dlrOdVb7xNjmT/lHE+LsgztWks3dG7boJ37yTS/venXw84B/mAW9uHVoC5QRg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/find-node-modules/-/find-node-modules-2.1.3.tgz}
@@ -16708,6 +16774,12 @@ packages:
       postcss-value-parser: registry.npmmirror.com/postcss-value-parser@3.3.1
     dev: true
 
+  registry.npmmirror.com/taro-plugin-compiler-optimization@1.0.4:
+    resolution: {integrity: sha512-7aAOSWLpkPlJkCM6NPjcZEqoLXdquNy16CEEKIzAAD03OJ742rHhVzbZ0NIdMABMV7xC+gzRFq9eoZ64gm9o2g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/taro-plugin-compiler-optimization/-/taro-plugin-compiler-optimization-1.0.4.tgz}
+    name: taro-plugin-compiler-optimization
+    version: 1.0.4
+    dev: true
+
   registry.npmmirror.com/tarojs-router-next-plugin@3.2.0:
     resolution: {integrity: sha512-ae3KwqDXActP6+gkg5W+ecIffubX5J71ibBIv1ia4UOXboaTbAPJifzBrwE7cMIkAcasJjgjmpf5Juq/VoRKlQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tarojs-router-next-plugin/-/tarojs-router-next-plugin-3.2.0.tgz}
     name: tarojs-router-next-plugin
@@ -16725,11 +16797,11 @@ packages:
       query-string: registry.npmmirror.com/query-string@7.1.3
     dev: false
 
-  registry.npmmirror.com/terser-webpack-plugin@5.3.6(@swc/core@1.3.38)(esbuild@0.14.54)(webpack@5.69.0):
-    resolution: {integrity: sha512-kfLFk+PoLUQIbLmB1+PZDMRSZS99Mp+/MHqDNmMA6tOItzRt+Npe3E+fsMs5mfcM0wCtrrdU387UnV+vnSffXQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/terser-webpack-plugin/-/terser-webpack-plugin-5.3.6.tgz}
-    id: registry.npmmirror.com/terser-webpack-plugin/5.3.6
+  registry.npmmirror.com/terser-webpack-plugin@5.3.7(@swc/core@1.3.38)(esbuild@0.14.54)(webpack@5.69.0):
+    resolution: {integrity: sha512-AfKwIktyP7Cu50xNjXF/6Qb5lBNzYaWpU6YfoX3uZicTx0zTy0stDDCsvjDapKsSDvOeWo5MEq4TmdBy2cNoHw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/terser-webpack-plugin/-/terser-webpack-plugin-5.3.7.tgz}
+    id: registry.npmmirror.com/terser-webpack-plugin/5.3.7
     name: terser-webpack-plugin
-    version: 5.3.6
+    version: 5.3.7
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -16795,6 +16867,23 @@ packages:
     version: 3.3.1
     dependencies:
       any-promise: registry.npmmirror.com/any-promise@1.3.0
+    dev: true
+
+  registry.npmmirror.com/thread-loader@3.0.4(webpack@5.69.0):
+    resolution: {integrity: sha512-ByaL2TPb+m6yArpqQUZvP+5S1mZtXsEP7nWKKlAUTm7fCml8kB5s1uI3+eHRP2bk5mVYfRSBI7FFf+tWEyLZwA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/thread-loader/-/thread-loader-3.0.4.tgz}
+    id: registry.npmmirror.com/thread-loader/3.0.4
+    name: thread-loader
+    version: 3.0.4
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      webpack: ^4.27.0 || ^5.0.0
+    dependencies:
+      json-parse-better-errors: registry.npmmirror.com/json-parse-better-errors@1.0.2
+      loader-runner: registry.npmmirror.com/loader-runner@4.3.0
+      loader-utils: registry.npmmirror.com/loader-utils@2.0.4
+      neo-async: registry.npmmirror.com/neo-async@2.6.2
+      schema-utils: registry.npmmirror.com/schema-utils@3.1.1
+      webpack: registry.npmmirror.com/webpack@5.69.0(@swc/core@1.3.38)
     dev: true
 
   registry.npmmirror.com/throat@6.0.2:
@@ -18038,7 +18127,7 @@ packages:
       neo-async: registry.npmmirror.com/neo-async@2.6.2
       schema-utils: registry.npmmirror.com/schema-utils@3.1.1
       tapable: registry.npmmirror.com/tapable@2.2.1
-      terser-webpack-plugin: registry.npmmirror.com/terser-webpack-plugin@5.3.6(@swc/core@1.3.38)(esbuild@0.14.54)(webpack@5.69.0)
+      terser-webpack-plugin: registry.npmmirror.com/terser-webpack-plugin@5.3.7(@swc/core@1.3.38)(esbuild@0.14.54)(webpack@5.69.0)
       watchpack: registry.npmmirror.com/watchpack@2.4.0
       webpack-sources: registry.npmmirror.com/webpack-sources@3.2.3
     transitivePeerDependencies:

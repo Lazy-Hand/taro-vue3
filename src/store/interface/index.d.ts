@@ -32,4 +32,5 @@ export interface Tabbar {
 	active: string
 	name: string
 	title: string
+	pagePath: string
 }

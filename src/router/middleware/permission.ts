@@ -10,17 +10,15 @@ registerMiddleware(async (_ctx, next) => {
 		})
 		if (confirm) Router.toLogin()
 		return
-	} else {
-		if (_ctx.route.url === '/pages/login/index') {
-			showToast({
-				icon: 'error',
-				title: '请先退出登录',
-				mask: true,
-				duration: 3000
-			})
-			return
-		}
 	}
-
+	if (userStore.token && _ctx.route.url === '/pages/login/index') {
+		showToast({
+			icon: 'error',
+			title: '请先退出登录',
+			mask: true,
+			duration: 3000
+		})
+		return
+	}
 	await next()
 })
