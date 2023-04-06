@@ -1,4 +1,7 @@
 import Taro from '@tarojs/taro'
+import { useUserStore } from '@/store'
+import Router, { NavigateType } from 'tarojs-router-next'
+const userStore = useUserStore()
 const showToast = (title: string) => {
 	Taro.showToast({
 		title,
@@ -16,6 +19,8 @@ export const checkStatus = (status: number): void => {
 		case 401:
 			showToast('登录失效(401)')
 			// 这里可以做清空storage并跳转到登录页的操作
+			userStore.setToken(null)
+			Router.toLogin({ type: NavigateType.redirectTo })
 			break
 		case 403:
 			showToast('拒绝访问(403)')

@@ -1,5 +1,7 @@
 import Components from 'unplugin-vue-components/webpack'
 import path from 'path'
+// 导入unocss
+import UnoCSS from 'unocss/webpack'
 const NutUIResolver = () => {
 	return name => {
 		if (name.startsWith('Nut')) {
@@ -30,7 +32,20 @@ const config = {
 	},
 	sourceRoot: 'src',
 	outputRoot: 'dist',
-	plugins: ['@tarojs/plugin-html'],
+	plugins: [
+		'@tarojs/plugin-html',
+		[
+			'tarojs-router-next-plugin',
+			{
+				packages: [
+					{
+						name: 'pagesA',
+						pagePath: path.resolve(__dirname, '../src/pagesA/pages')
+					}
+				]
+			}
+		]
+	],
 	defineConstants: {},
 	alias: {
 		'@': path.resolve(__dirname, '..', './src')
@@ -57,6 +72,7 @@ const config = {
 					resolvers: [NutUIResolver()]
 				})
 			)
+			chain.plugin('unocss').use(UnoCSS())
 		},
 		postcss: {
 			pxtransform: {
@@ -87,6 +103,7 @@ const config = {
 					resolvers: [NutUIResolver()]
 				})
 			)
+			chain.plugin('unocss').use()
 		},
 		publicPath: '/',
 		staticDirectory: 'static',

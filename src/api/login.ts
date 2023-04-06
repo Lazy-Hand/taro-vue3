@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 import { LoginForm } from '@/pages/login/index.vue'
-import { LoginUser } from '@/store/interface'
+import { LoginUser } from './interface/index'
 /**
  * @description 登录
  * @param {LoginForm} params

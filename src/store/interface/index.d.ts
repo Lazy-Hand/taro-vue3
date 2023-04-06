@@ -1,4 +1,3 @@
-import { PageNames } from '@/router/interface/routes'
 /**
  * 个人信息
  */
@@ -20,7 +19,10 @@ export interface UserInfo {
 	roleText: string
 	warehouseId: number
 }
-
+export interface LoginUser {
+	token: string
+	user: UserInfo
+}
 /**
  * tabbar
  */
@@ -28,7 +30,6 @@ export interface Tabbar {
 	id: number
 	icon: string
 	active: string
-	name: PageNames
+	name: string
 	title: string
-	pagePath: string
 }

@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import './app.scss'
 import store from '@/store'
+import './router'
 const App = createApp({
 	onShow(options) {
 		console.log(options)

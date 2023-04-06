@@ -46,9 +46,9 @@ import { Ask, My2 } from '@nutui/icons-vue-taro'
 import { reactive, ref } from 'vue'
 import { showToast, showLoading, hideLoading, login } from '@tarojs/taro'
 import { reqGetCode, reqLogin } from '@/api/login'
-import { useUserStore } from '@/store'
+import { useUserStore, useGlobalStore } from '@/store'
 import validate from '@/utils/validate'
-import router from '@/router'
+import Router from 'tarojs-router-next'
 
 export interface LoginForm {
 	/**
@@ -73,7 +73,7 @@ export interface LoginForm {
 }
 
 const userStore = useUserStore()
-
+const globalStore = useGlobalStore()
 const state = reactive<LoginForm>({
 	checkbox: true,
 	phoneNum: '',
@@ -163,6 +163,7 @@ const handleLogin = () => {
 			state.wechatCode = res.code
 			const { data } = await reqLogin(state)
 			userStore.setToken(data.token)
+			globalStore.switchTab(0)
 		}
 	})
 }
@@ -172,7 +173,7 @@ const handleLogin = () => {
  * @param url webview 路径
  */
 const agreement = (url: string) => {
-	router.navigate('agreement', { url })
+	Router.toAgreement({ params: { url } })
 }
 </script>
 <style lang="scss">

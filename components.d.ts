@@ -12,7 +12,11 @@ declare module '@vue/runtime-core' {
     NutInput: typeof import('@nutui/nutui-taro')['Input']
     NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
     NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
+    NutTabPane: typeof import('@nutui/nutui-taro')['TabPane']
+    NutTabs: typeof import('@nutui/nutui-taro')['Tabs']
     NutToast: typeof import('@nutui/nutui-taro')['Toast']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     Tabbar: typeof import('./src/components/Tabbar/index.vue')['default']
   }
 }

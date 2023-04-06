@@ -8,11 +8,11 @@
 
 <script setup lang="ts">
 import Tabbar from '@/components/Tabbar/index.vue'
-import router from '@/router'
+import { Router } from 'tarojs-router-next'
 const test = () => {
-	router.navigate('chart')
+	Router.pagesA.toChart()
 }
 const test1 = () => {
-	router.navigate('screen')
+	Router.pagesA.toScreen()
 }
 </script>

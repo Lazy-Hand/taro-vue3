@@ -10,7 +10,7 @@ export default defineAppConfig({
 	subPackages: [
 		{
 			root: 'pagesA',
-			pages: ['chart/index', 'screen/index']
+			pages: ['pages/chart/index', 'pages/screen/index']
 		}
 	],
 	window: {

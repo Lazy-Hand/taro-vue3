@@ -1,0 +1,48 @@
+.container {
+	width: 100%;
+	background-color: #f5f7fa;
+	.title {
+		font-size: 36rpx;
+		font-weight: 600;
+	}
+	.content {
+		width: 100%;
+		margin-top: 36rpx;
+		padding: 24rpx;
+		box-sizing: border-box;
+		display: grid;
+		/*  声明列的宽度  */
+		grid-template-columns: repeat(2, 48.5%);
+		/*  声明行间距和列间距  */
+		grid-gap: 20rpx;
+		/*  声明行的高度  */
+		grid-template-rows: 150rpx 150rpx 150rpx;
+		.item {
+			background-color: #fff;
+			border: 1rpx solid #81bcff;
+			position: relative;
+			&:after {
+				content: '';
+				width: calc(100% - 24rpx);
+				height: 100%;
+				position: absolute;
+				left: 12px;
+				top: -1px;
+				bottom: -1px;
+				border-bottom: 1rpx solid #fff;
+				border-top: 1rpx solid #fff;
+			}
+			&:before {
+				content: '';
+				width: 100%;
+				height: calc(100% - 24rpx);
+				position: absolute;
+				left: -1rpx;
+				right: -1rpx;
+				top: 12rpx;
+				border-left: 1rpx solid #fff;
+				border-right: 1rpx solid #fff;
+			}
+		}
+	}
+}

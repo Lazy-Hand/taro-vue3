@@ -15,22 +15,19 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Dongdong } from '@nutui/icons-vue-taro'
-import { useUserStore } from '@/store'
-import router from '@/router'
 import Tabbar from '@/components/Tabbar/index.vue'
-const userStore = useUserStore()
+import Router from 'tarojs-router-next'
 const msg = ref('欢迎使用 NutUI4.0 开发小程序')
 const msg2 = ref('你成功了～')
 const type = ref('text')
 const show = ref(false)
 const cover = ref(false)
-const handleClick = (typeVal, msgVal, coverVal = false) => {
-	console.log(userStore.token)
+const handleClick = (typeVal: string, msgVal: string, coverVal = false) => {
 	show.value = true
 	msg2.value = msgVal
 	type.value = typeVal
 	cover.value = coverVal
-	router.navigate('login')
+	Router.toLogin()
 }
 </script>
 
