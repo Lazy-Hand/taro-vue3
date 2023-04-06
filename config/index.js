@@ -67,6 +67,9 @@ const config = {
 		data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
 	},
 	mini: {
+		optimizeMainPackage: {
+			enable: true
+		},
 		webpackChain(chain) {
 			chain.merge({
 				plugin: {
